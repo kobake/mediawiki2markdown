@@ -1,0 +1,94 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<script src="jquery-2.1.0.min.js"></script>
+	<script src="wikipedia2markdown.js"></script>
+
+	<title>wikipedia2markdown</title>
+	<meta name="author" content="kobake" />
+	<meta name="keywords" content="Wikipedia,Markdown,Convert,変換" />
+</head><body>
+<div style="margin-bottom: 10px;">
+	Wikipedia 書式から Markdown 書式に変換。<br/>
+	個人的に使う用途なので対応は中途半端です。
+</div>
+
+<style type="text/css">
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* 右側 */
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+div.left-text{
+	width: 47%;
+	float: left;
+	/* background-color: #f00; */
+}
+div.left-text textarea{
+	width: 100%;
+	height: 200px;
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* 中央 */
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+div.center-button{
+	width: 6%;
+	float: left;
+	/* background-color: #0f0; */
+	text-align: center;
+}
+div.center-button div{
+	/* background-color: #ff0; */
+	text-align: center ! important;
+	vertical-align: middle ! important;
+	height: 200px;
+}
+div.center-button button{
+	border: 1px solid #000;
+	float: none ! important;
+	margin: auto ! important;
+	vertical-align: middle ! important;
+	margin-top: 90px ! important;
+}
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+/* 右側 */
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+div.right-text{
+	width: 47%;
+	float: left;
+	/* background-color: #00f; */
+}
+div.right-text textarea{
+	width: 100%;
+	height: 200px;
+}
+</style>
+
+<div class="left-text">
+	<div id="fromlabel">変換前</div>
+	<textarea rows="10" cols="80" id="from"></textarea>
+</div>
+<div class="center-button">
+	<div class="toolbar fg-green">
+        <button>-&gt;</button>
+	</div>
+</div>
+<div class="right-text">
+	<div id="tolabel">変換後</div>
+	<textarea rows="4" cols="80" id="to"></textarea>
+</div>
+
+<script type="text/javascript" src="wikipedia2markdown.js"></script>
+<script type="text/javascript">
+	"use strict";
+	$(function(){
+		$("#from").bind("change keyup input paste", function(){
+			var val = $("#from").val();
+			val = wikipedia2markdown(val);
+			$("#to").val(val);
+		});
+	});
+</script>
+
+</body>
+</html>
