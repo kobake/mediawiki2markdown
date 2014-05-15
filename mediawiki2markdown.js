@@ -1,5 +1,5 @@
-// Wikipedia書式をMarkdown書式に変換する
-function wikipedia2markdown(val) {
+// Mediawiki書式をMarkdown書式に変換する
+function mediawiki2markdown(val) {
 	// 改行コード統一
 	val = val.replace(/\r\n/g, '\n');
 	val = val.replace(/\r/g, '\n');

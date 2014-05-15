@@ -1,4 +1,4 @@
-wikipedia2markdown
+mediawiki2markdown
 ==================
 
-Wikipedia style to Markdown style converter
+Mediawiki style to Markdown style converter

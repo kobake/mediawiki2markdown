@@ -4,14 +4,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 	<script src="jquery-2.1.0.min.js"></script>
-	<script src="wikipedia2markdown.js"></script>
+	<script src="mediawiki2markdown.js"></script>
 
-	<title>wikipedia2markdown</title>
+	<title>mediawiki2markdown</title>
 	<meta name="author" content="kobake" />
-	<meta name="keywords" content="Wikipedia,Markdown,Convert,変換" />
+	<meta name="keywords" content="Mediawiki,Markdown,Convert,変換" />
 </head><body>
 <div style="margin-bottom: 10px;">
-	Wikipedia 書式から Markdown 書式に変換。<br/>
+	Mediawiki 書式から Markdown 書式に変換。<br/>
 	個人的に使う用途なので対応は中途半端です。
 </div>
 
@@ -78,13 +78,13 @@ div.right-text textarea{
 	<textarea rows="4" cols="80" id="to"></textarea>
 </div>
 
-<script type="text/javascript" src="wikipedia2markdown.js"></script>
+<script type="text/javascript" src="mediawiki2markdown.js"></script>
 <script type="text/javascript">
 	"use strict";
 	$(function(){
 		$("#from").bind("change keyup input paste", function(){
 			var val = $("#from").val();
-			val = wikipedia2markdown(val);
+			val = mediawiki2markdown(val);
 			$("#to").val(val);
 		});
 	});
