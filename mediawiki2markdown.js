@@ -36,3 +36,25 @@ function mediawiki2markdown(val) {
 	// 結果
 	return val;
 }
+
+// node で実行された場合
+// 標準入力からMediaWikiのWikiTextを受け取り、
+// 標準出力にMarkdownを出力する
+if (typeof window === 'undefined') { // windowがundefinedならnodeからの実行とみなす
+	process.stdin.setEncoding('utf8');
+	var input_text = '';
+
+	process.stdin.on('readable', function() {
+		var chunk = process.stdin.read();
+		if (chunk !== null) {
+			input_text += chunk;
+		}
+	});
+
+	process.stdin.on('end', function() {
+		// 一気に変換する
+		var output_text = mediawiki2markdown(input_text);
+		// 出力
+		process.stdout.write(output_text);
+	});
+}
